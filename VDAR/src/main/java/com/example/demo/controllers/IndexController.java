@@ -22,5 +22,12 @@ public class IndexController {
 	}
 	
 
+	@GetMapping({"/formulario_consulta"})
+	public String segundex(Model model) {
+		
+		model.addAttribute("titulo", "Control municipios");
+		
+		return "formulario_consulta";
+	}
 	
 }
