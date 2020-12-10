@@ -23,11 +23,19 @@ public class IndexController {
 	
 
 	@GetMapping({"/formulario_consulta"})
-	public String segundex(Model model) {
+	public String Menu(Model model) {
 		
 		model.addAttribute("titulo", "Control municipios");
 		
 		return "formulario_consulta";
+	}
+	
+	@GetMapping({"/formulario_consulta2"})
+	public String Menu2(Model model) {
+		
+		model.addAttribute("titulo", "Control municipios");
+		
+		return "formulario_consulta2";
 	}
 	
 }

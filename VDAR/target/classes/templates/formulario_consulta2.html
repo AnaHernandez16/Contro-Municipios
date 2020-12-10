@@ -13,10 +13,17 @@ body{
       }
       
 .xd{
-    margin-top: 120px;
+    margin-top: 60px;
     margin-left: 300px;
     
-}      
+}
+   
+.title{
+    margin-top: 50px;
+    margin-left: 550px;
+    color: white;
+}    
+  
 </style>
 
 </head>
@@ -25,17 +32,18 @@ body{
 <!-- Navbar -->
 <div th:include="navbar.html" th:remove="tag"></div>
 
-<!-- Cards -->
+<center><h1 class="row title"><strong>Municipios</strong></h1></center>
 
+<!-- Cards -->
 	<div class="row xd">
 		<div class="col-sm-4">
 			<div class="card text-center">
 				<div class="card-body">
-					<h5 class="card-title"> <h1><strong>Municipios</strong></h1> </h5>
+					<h5 class="card-title"> <h1><strong>Consultas</strong></h1> </h5>
 					<p class="card-text">
-					<img src="static/img/muni.png" width="250" height="250" alt="" loading="lazy" th:src="@{/img/muni.png}"/>
+					<img src="static/img/consulta.png" width="250" height="250" alt="" loading="lazy" th:src="@{/img/consulta.png}"/>
 					</p>
-					<a href="http://localhost:8080/app/formulario_consulta2" class="btn btn btn-dark btn-block">Ir</a>
+					<a href="#" class="btn btn btn-dark btn-block">Ir</a>
 				</div>
 			</div>
 		</div>
@@ -43,11 +51,11 @@ body{
 		<div class="col-sm-4">
 			<div class="card text-center">
 				<div class="card-body">
-					<h5 class="card-title"><h1><strong>Casas</strong></h1></h5>
+					<h5 class="card-title"><h1><strong>Llenar formulario</strong></h1></h5>
 					<p class="card-text">
-					<img src="static/img/casas.png" width="250" height="250" alt="" loading="lazy" th:src="@{/img/casas.png}"/>
+					<img src="static/img/form.png" width="250" height="202" alt="" loading="lazy" th:src="@{/img/form.png}"/>
 					</p>
-					<a href="http://localhost:8080/app/formulario_consulta" class="btn btn btn-dark btn-block">Ir</a>
+					<a href="#" class="btn btn btn-dark btn-block">Ir</a>
 				</div>
 			</div>
 		</div>
