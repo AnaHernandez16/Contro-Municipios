@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Casa;
-
+import com.example.demo.entity.Municipio;
 import com.example.demo.service.CasasService;
+import com.example.demo.service.MunicipiosService;
 
 
 
@@ -72,6 +73,25 @@ public class IndexController {
 	public String addUsers(@ModelAttribute(name="casa") Casa casa) {
 		casasService.addCasa(casa);
 		return "redirect:/app/formulario_casas";
+	}
+	
+	@Autowired
+	@Qualifier("municipiosservice")
+	private MunicipiosService municipiosService;
+	
+	@GetMapping("/formulario_municipios")
+	public ModelAndView formMunicipios(Model model) {
+		
+		model.addAttribute("titulo", "Formulario municipios");
+		ModelAndView mav = new ModelAndView("formulario_municipios");
+		mav.addObject("municipio", new Municipio());
+		return mav;
+	}
+	
+	@PostMapping("/agregarMunicipio")
+	public String addUsers(@ModelAttribute(name="municipio") Municipio municipio) {
+		municipiosService.addMunicipio(municipio);
+		return "redirect:/app/formulario_municipios";
 	}
 	
 	
