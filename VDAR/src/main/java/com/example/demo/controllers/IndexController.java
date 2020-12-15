@@ -2,6 +2,8 @@ package com.example.demo.controllers;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,15 +12,20 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.entity.Casa;
 import com.example.demo.entity.Municipio;
+import com.example.demo.repository.MunicipioCrud;
+import com.example.demo.repository.MunicipiosRepository;
 import com.example.demo.service.CasasService;
 import com.example.demo.service.MunicipiosService;
 
@@ -57,6 +64,10 @@ public class IndexController {
 	}
 	
 	@Autowired
+	@Qualifier("municipiosrepository")
+	private MunicipiosRepository municipiosrepository;
+	
+	@Autowired
 	@Qualifier("casasservice")
 	private CasasService casasService;
 	
@@ -66,6 +77,8 @@ public class IndexController {
 		model.addAttribute("titulo", "Formulario casas");
 		ModelAndView mav = new ModelAndView("formulario_casas");
 		mav.addObject("casa", new Casa());
+		List<Municipio> weno= municipiosrepository.findAll();
+		model.addAttribute("Lista", weno);
 		return mav;
 	}
 	
@@ -93,6 +106,14 @@ public class IndexController {
 		municipiosService.addMunicipio(municipio);
 		return "redirect:/app/formulario_municipios";
 	}
+	
+	
+	
+	
+	
+	
+	
+		
 	
 	
 }
