@@ -23,14 +23,14 @@ public class ControladorCrud2 {
         return "/crud/consulta_casas";
     }
 
-	/*
+	
 	@RequestMapping(value="/borrar/{numero_casa}", method=RequestMethod.GET)
 	private String borrar(@PathVariable("numero_casa") long numero_casaCasa, ModelMap mp){
 		uc.deleteAll();
 	    
 	    mp.put("casas",uc.findAll());
 	    return "redirect:/crud/consulta_casas";
-	}*/
+	}
 	
 	
 	
